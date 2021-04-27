@@ -101,6 +101,7 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Host Server";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -126,6 +127,7 @@
             this.hostButton.TabIndex = 3;
             this.hostButton.Text = "Host";
             this.hostButton.UseVisualStyleBackColor = true;
+            this.hostButton.Click += new System.EventHandler(this.hostButton_Click);
             // 
             // hostPortTextBox
             // 
@@ -146,6 +148,7 @@
             this.joinButton.TabIndex = 4;
             this.joinButton.Text = "Join";
             this.joinButton.UseVisualStyleBackColor = true;
+            this.joinButton.Click += new System.EventHandler(this.joinButton_Click);
             // 
             // label4
             // 

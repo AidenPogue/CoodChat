@@ -81,7 +81,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(950, 485);
             this.tableLayoutPanel1.TabIndex = 0;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // tableLayoutPanel2
             // 
@@ -139,7 +138,6 @@
             this.codeInputBox.TabIndex = 1;
             this.codeInputBox.Text = "using System;\n\npublic class Class\n{\n\tpublic static void Method()\n\t{\n\t\tConsole.Wri" +
     "teLine(\"U Mom\");\n\n\t}\n}\n";
-            this.codeInputBox.TextChanged += new System.EventHandler(this.codeInputBox_TextChanged);
             // 
             // maskedTextBox1
             // 
@@ -157,6 +155,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "InputWindow";
             this.Text = "Input Window";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InputWindow_FormClosing);
             this.Load += new System.EventHandler(this.InputWindow_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

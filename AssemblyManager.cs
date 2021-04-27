@@ -13,23 +13,36 @@ namespace CoodChat
 {
     class AssemblyManager
     {
-        public static bool TryBuildAssembly(string source, out byte[] bytes, out EmitResult result)
+        public static bool TryBuildAndExecuteAssembly(string source, string entryPoint)
         {
-            Console.WriteLine($"Attempting to build {source.Length} byte source...")
+            Console.WriteLine($"\nAttempting to build {source.Length} byte source...");
             SyntaxTree syntaxTree = CSharpSyntaxTree.ParseText(source);
             var refs = AppDomain.CurrentDomain.GetAssemblies().Where(asm => !asm.Location.Equals(string.Empty)).Select(asm => MetadataReference.CreateFromFile(asm.Location));
             CSharpCompilation compiler = CSharpCompilation.Create("MessageCompilation " + Guid.NewGuid(), new[] { syntaxTree }, refs, new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
             using (MemoryStream ms = new MemoryStream())
             {
-                result = compiler.Emit(ms);
+                var result = compiler.Emit(ms);
                 ms.Seek(0, SeekOrigin.Begin);
                 GC.Collect();
-                bytes = ms.ToArray();
-                return result.Success;
+                if (result.Success)
+                {
+                    var asm = Assembly.Load(ms.ToArray());
+                    ExecuteAssembly(asm, entryPoint);
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("Compiler Error:");
+                    foreach (Diagnostic diagnostic in result.Diagnostics)
+                    {
+                        Console.WriteLine(diagnostic.ToString());
+                    }
+                    return false;
+                }
             }
         }
 
-        public static void ExecuteAssembly(Assembly asm, string entryPoint)
+        private static void ExecuteAssembly(Assembly asm, string entryPoint)
         {
             Console.WriteLine($"Executing assembly {asm.GetName().Name} at entry pount {entryPoint}");
             int lastPeriod = entryPoint.LastIndexOf('.');
