@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinFormsTest
+namespace CoodChat
 {
     public partial class NetworkPopupForm : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace WinFormsTest
+﻿namespace CoodChat
 {
     partial class NetworkPopupForm
     {

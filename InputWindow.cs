@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinFormsTest
+namespace CoodChat
 {
     public partial class InputWindow : Form
     {
@@ -34,15 +34,16 @@ namespace WinFormsTest
         private void SendCode()
         {
             string code = codeInputBox.Text;
+            string entryPoint = entryPointTextBox.Text;
             if (AssemblyManager.TryBuildAssembly(code, out byte[] bytes, out EmitResult result))
             {
                 var asm = Assembly.Load(bytes);
-                AssemblyManager.ExecuteAssembly(asm, entryPointTextBox.Text);
-                NetworkManager.TrySendAssembly(bytes);
+                AssemblyManager.ExecuteAssembly(asm, entryPoint);
+                NetworkManager.TrySendSource(code, entryPoint);
             }
             else
             {
-                Console.WriteLine("Compiler Error:\n");
+                Console.WriteLine("Compiler Error:");
                 foreach(Diagnostic diagnostic in result.Diagnostics)
                 {
                     Console.WriteLine(diagnostic.ToString());

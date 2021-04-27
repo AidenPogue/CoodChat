@@ -1,4 +1,4 @@
-﻿namespace WinFormsTest
+﻿namespace CoodChat
 {
     partial class InputWindow
     {
@@ -30,10 +30,10 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.codeInputBox = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.entryPointTextBox = new System.Windows.Forms.TextBox();
+            this.codeInputBox = new System.Windows.Forms.RichTextBox();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -83,22 +83,6 @@
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
-            // codeInputBox
-            // 
-            this.codeInputBox.AcceptsTab = true;
-            this.codeInputBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.SetColumnSpan(this.codeInputBox, 2);
-            this.codeInputBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.codeInputBox.Location = new System.Drawing.Point(3, 3);
-            this.codeInputBox.Name = "codeInputBox";
-            this.codeInputBox.Size = new System.Drawing.Size(944, 441);
-            this.codeInputBox.TabIndex = 1;
-            this.codeInputBox.Text = "using System;\n\npublic class Class\n{\n\tpublic static void Method()\n\t{\n\t\tConsole.Wri" +
-    "teLine(\"U Mom\");\n\n\t}\n}\n";
-            this.codeInputBox.TextChanged += new System.EventHandler(this.codeInputBox_TextChanged);
-            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -140,6 +124,22 @@
             this.entryPointTextBox.Size = new System.Drawing.Size(735, 20);
             this.entryPointTextBox.TabIndex = 1;
             this.entryPointTextBox.Text = "Class.Method";
+            // 
+            // codeInputBox
+            // 
+            this.codeInputBox.AcceptsTab = true;
+            this.codeInputBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.SetColumnSpan(this.codeInputBox, 2);
+            this.codeInputBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codeInputBox.Location = new System.Drawing.Point(3, 3);
+            this.codeInputBox.Name = "codeInputBox";
+            this.codeInputBox.Size = new System.Drawing.Size(944, 441);
+            this.codeInputBox.TabIndex = 1;
+            this.codeInputBox.Text = "using System;\n\npublic class Class\n{\n\tpublic static void Method()\n\t{\n\t\tConsole.Wri" +
+    "teLine(\"U Mom\");\n\n\t}\n}\n";
+            this.codeInputBox.TextChanged += new System.EventHandler(this.codeInputBox_TextChanged);
             // 
             // maskedTextBox1
             // 

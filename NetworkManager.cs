@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WinFormsTest
+namespace CoodChat
 {
     static class NetworkManager
     {
@@ -13,9 +13,10 @@ namespace WinFormsTest
             return true;
         }
 
-        public static bool TrySendAssembly(byte[] bytes)
+        public static bool TrySendSource(string source, string entryPoint)
         {
-            Console.WriteLine($"Attempting to send {bytes.Length} byte assembly...");
+            string toSend = $"{entryPoint}|{source}";
+            Console.WriteLine($"Attempting to send {toSend.Length} byte source...");
             return true;
         }
     }
