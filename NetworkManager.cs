@@ -15,7 +15,7 @@ namespace CoodChat
     {
         public static bool Hosting { get; private set; }
 
-        private static List<TcpClient> clients = new List<TcpClient>();
+        private static List<Socket> clients = new List<Socket>();
 
         private static TcpClient myClient;
 
@@ -50,28 +50,45 @@ namespace CoodChat
             {
                 var acceptedClient = await server.AcceptTcpClientAsync();
                 Console.WriteLine("Got TCP client.");
-                clients.Add(acceptedClient);
+                clients.Add(acceptedClient.Client);
                 new Thread(() => AwaitSocketData(acceptedClient.Client)).Start();
             }
         }
 
         private static void AwaitSocketData(Socket socket)
         {
-            byte[] buffer = new byte[2048];
             while (true)
             {
-                socket.Receive(buffer, SocketFlags.None);
-                HandleTcpRecievedData(Encoding.ASCII.GetString(buffer).Trim('\0'), socket);
+                var buffer = new byte[8192];
+                try
+                {
+                    socket.Receive(buffer, SocketFlags.None);
+                }
+                catch 
+                {
+                    Console.WriteLine($"Connection to {(Hosting ? "client" : "server")} closed.");
+                    if (Hosting)
+                    {
+                        clients.Remove(socket);
+                    }
+                    else
+                    {
+                        NetworkPopupForm.ShowAsPopup();
+                    }
+                    Thread.CurrentThread.Abort();
+                }
+
+                HandleTcpRecievedData(Encoding.UTF8.GetString(buffer).Trim('\0'), socket);
             }
         }
 
         public static void SendDataToClients(string data, Socket excludeClient)
         {
-            foreach(TcpClient client in clients)
+            foreach(Socket client in clients)
             {
                 //Dont want to send code back to the person who sent it.
-                if (client.Client == excludeClient) continue;
-                client.Client.Send(Encoding.ASCII.GetBytes(data));
+                if (client == excludeClient) continue;
+                client.Send(Encoding.UTF8.GetBytes(data));
             }
         }
         #endregion
@@ -80,7 +97,15 @@ namespace CoodChat
         public static bool TryConnect(string ip, int port)
         {
             Console.WriteLine($"Connecting to {ip}:{port}...");
-            myClient = new TcpClient(ip, port);
+            try
+            {
+                myClient = new TcpClient(ip, port);
+            }
+            catch
+            {
+                Console.WriteLine("Connection failed.");
+                return false;
+            }
             Console.WriteLine("Connected.");
             new Thread(() => AwaitSocketData(myClient.Client)).Start();
             return true;
@@ -97,7 +122,9 @@ namespace CoodChat
             }
             else
             {
-                myClient.GetStream().Write(Encoding.ASCII.GetBytes(toSend), 0, toSend.Length);
+                var stream = myClient.GetStream();
+                //Console.WriteLine(stream.Length);
+                stream.Write(Encoding.UTF8.GetBytes(toSend), 0, toSend.Length);
             }
             Console.WriteLine("Bytes sent.");
         }

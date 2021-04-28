@@ -27,8 +27,18 @@ namespace CoodChat
                 if (result.Success)
                 {
                     var asm = Assembly.Load(ms.ToArray());
-                    ExecuteAssembly(asm, entryPoint);
-                    return true;
+                    try
+                    {
+                        ExecuteAssembly(asm, entryPoint);
+                        return true;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine($"Caught exception:\n{e}");
+                        return false;
+                    }
+                    
+                    
                 }
                 else
                 {

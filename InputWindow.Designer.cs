@@ -34,7 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.entryPointTextBox = new System.Windows.Forms.TextBox();
             this.codeInputBox = new System.Windows.Forms.RichTextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -115,10 +114,8 @@
             // 
             // entryPointTextBox
             // 
-            this.entryPointTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.entryPointTextBox.Location = new System.Drawing.Point(92, 3);
+            this.entryPointTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.entryPointTextBox.Location = new System.Drawing.Point(92, 6);
             this.entryPointTextBox.Name = "entryPointTextBox";
             this.entryPointTextBox.Size = new System.Drawing.Size(735, 20);
             this.entryPointTextBox.TabIndex = 1;
@@ -137,21 +134,13 @@
             this.codeInputBox.Size = new System.Drawing.Size(944, 441);
             this.codeInputBox.TabIndex = 1;
             this.codeInputBox.Text = "using System;\n\npublic class Class\n{\n\tpublic static void Method()\n\t{\n\t\tConsole.Wri" +
-    "teLine(\"U Mom\");\n\n\t}\n}\n";
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(387, 504);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(8, 20);
-            this.maskedTextBox1.TabIndex = 1;
+    "teLine(\"U Mom\");\n\t}\n}";
             // 
             // InputWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(974, 509);
-            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "InputWindow";
             this.Text = "Input Window";
@@ -161,7 +150,6 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -173,7 +161,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox entryPointTextBox;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }
 

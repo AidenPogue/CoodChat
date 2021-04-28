@@ -17,6 +17,11 @@ namespace CoodChat
             InitializeComponent();
         }
 
+        public static void ShowAsPopup()
+        {
+            new NetworkPopupForm().ShowDialog();
+        }
+
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -35,9 +40,13 @@ namespace CoodChat
         private void joinButton_Click(object sender, EventArgs e)
         {
             var splitAddress = joinIPTextBox.Text.Split(':');
-            if (int.TryParse(splitAddress[1], out int port))
+            if (splitAddress.Length == 2 && int.TryParse(splitAddress[1], out int port))
             {
                 if (NetworkManager.TryConnect(splitAddress[0], port)) Close();
+            }
+            else
+            {
+                MessageBox.Show("Error", "Invalid IP");
             }
         }
     }

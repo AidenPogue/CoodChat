@@ -13,7 +13,7 @@ namespace CoodChat
         private void InputWindow_Load(object sender, EventArgs e)
         {
             Console.Title = "CoodChat Console";
-            new NetworkPopupForm().ShowDialog();
+            NetworkPopupForm.ShowAsPopup();
         }
 
         private void SendButton(object sender, EventArgs e)
