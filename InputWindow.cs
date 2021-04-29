@@ -16,18 +16,13 @@ namespace CoodChat
             NetworkPopupForm.ShowAsPopup();
         }
 
-        private void SendButton(object sender, EventArgs e)
-        {
-            SendCode();   
-        }
-
-        private void SendCode()
+        private void SendCode(object sender, EventArgs e)
         {
             string code = codeInputBox.Text;
             string entryPoint = entryPointTextBox.Text;
             if (AssemblyManager.TryBuildAndExecuteAssembly(code, entryPoint))
             {
-                NetworkManager.SendSource(code, entryPoint);
+                NetworkManager.SendToServer($"{entryPoint}|{code}", "c");
             }
             else
             {

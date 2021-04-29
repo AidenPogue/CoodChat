@@ -49,7 +49,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Compile And Send";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.SendButton);
+            this.button1.Click += new System.EventHandler(this.SendCode);
             // 
             // tableLayoutPanel1
             // 

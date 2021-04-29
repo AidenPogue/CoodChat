@@ -37,8 +37,8 @@
             this.joinButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
             this.usernameBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -90,7 +90,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Host Server";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -169,6 +168,14 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(271, 33);
             this.tableLayoutPanel2.TabIndex = 8;
             // 
+            // usernameBox
+            // 
+            this.usernameBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.usernameBox.Location = new System.Drawing.Point(135, 6);
+            this.usernameBox.Name = "usernameBox";
+            this.usernameBox.Size = new System.Drawing.Size(133, 20);
+            this.usernameBox.TabIndex = 8;
+            // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -182,14 +189,6 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Join Server With Username";
             this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // usernameBox
-            // 
-            this.usernameBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.usernameBox.Location = new System.Drawing.Point(135, 6);
-            this.usernameBox.Name = "usernameBox";
-            this.usernameBox.Size = new System.Drawing.Size(133, 20);
-            this.usernameBox.TabIndex = 8;
             // 
             // NetworkPopupForm
             // 
