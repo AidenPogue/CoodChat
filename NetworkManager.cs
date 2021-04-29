@@ -126,7 +126,7 @@ namespace CoodChat
                 return false;
             }
             Console.WriteLine("Connected.");
-            SendToServer(username);
+            SendToServer(username, "u");
             new Thread(() => AwaitSocketData(myClient.Client)).Start();
             return true;
         }
