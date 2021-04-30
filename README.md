@@ -6,7 +6,7 @@ If it can compile and run without any exceptions on your machine, the source cod
 As if it needs to be said, don't use this with someone you wouldn't trust with your wallet.
 
 ## Building
-Since I'm a stupid new age kid, I don't know what to tell you other than use VS 2019.
+Because I'm a stupid new age kid, I don't know what to tell you other than use VS 2019.
 
 ## Usage
 This app isn't anything fancy, so it just uses a simple TCP connection. The person hosting the server will need to forward a port, or you'll all need something like [LogMeIn Hamachi](https://vpn.net/).
