@@ -120,6 +120,7 @@
             // hostPortTextBox
             // 
             this.hostPortTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.hostPortTextBox.ImeMode = System.Windows.Forms.ImeMode.On;
             this.hostPortTextBox.Location = new System.Drawing.Point(280, 48);
             this.hostPortTextBox.Name = "hostPortTextBox";
             this.hostPortTextBox.Size = new System.Drawing.Size(272, 20);

@@ -22,7 +22,12 @@ namespace CoodChat
                 NetworkManager.Host(port);
                 Close();
             }
-
+            else
+            {
+                MessageBox.Show("Invalid port.", "Error");
+                int i = 5;
+                
+            }
         }
 
         private void joinButton_Click(object sender, EventArgs e)
@@ -34,7 +39,7 @@ namespace CoodChat
             }
             else
             {
-                MessageBox.Show("Inavlid IP or port.", "Error");
+                MessageBox.Show("Inavlid IP or port.", "Error");      
             }
         }
     }
